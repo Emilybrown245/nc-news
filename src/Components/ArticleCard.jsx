@@ -5,6 +5,7 @@ import {Link} from 'react-router'
 function ArticleCard ({article}) {
     
 return (
+   
     <div className="card-container">
         <Card style={{ width: "10rem" }} className="card-body" >
         <Card.Title>{article.title}</Card.Title>

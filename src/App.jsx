@@ -14,7 +14,7 @@ function App() {
   <Header/>
   <Routes>
     <Route path="/" element={<ArticleList articles={articles} setArticles={setArticles}/>}></Route>
-    <Route path="/articles/:article_id" element={<ArticlePage/>}></Route>
+    <Route path="/articles/:article_id" element={<ArticlePage articles={articles}/>}></Route>
   </Routes>
   </>
  )
