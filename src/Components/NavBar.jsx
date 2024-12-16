@@ -5,7 +5,6 @@ function NavBar () {
             <input type="text" id="topic-search" name="topic" placeholder="topic"></input>
             <button type="submit">Search</button>
         </form>
-
         )
     
 }
