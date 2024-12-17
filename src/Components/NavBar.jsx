@@ -7,7 +7,6 @@ function NavBar () {
         </form>
 
         )
-    
 }
 
 export default NavBar
