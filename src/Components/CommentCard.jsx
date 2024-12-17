@@ -1,4 +1,3 @@
-
 function CommentCard ({comment}) {
 return (
     <div className="comment-item">
