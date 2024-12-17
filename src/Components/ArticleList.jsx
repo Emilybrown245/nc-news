@@ -1,14 +1,13 @@
 import axios from 'axios'
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import ArticleCard from './ArticleCard'
 
-function ArticleList ({articles, setArticles}) {
+function ArticleList () {
+    const [articles, setArticles] = useState([])
     useEffect(() => {
-        const getArticles = () => {
-            return axios.get("https://nc-news-lo7q.onrender.com/api/articles")
-                .then(({ data }) => {
-                    setArticles(data.articles)
-                })
+        const getArticles = async () => {
+            const { data } = await axios.get("https://nc-news-lo7q.onrender.com/api/articles")
+            setArticles(data.articles)
         }
         getArticles()
     }, [])
