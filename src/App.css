@@ -1,4 +1,3 @@
-
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -26,4 +25,22 @@
 .article-image {
   width: 100%;
   border-radius: 2px; 
+}
+
+.card-container-article-page {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(23, 23, 23, 0.1);
+  border-radius: 8px;
+}
+
+.article-page-image {
+  width: 500px;
+  border-radius: 2px; 
+}
+
+.article-page-header {
+  font-size: large;
 }
