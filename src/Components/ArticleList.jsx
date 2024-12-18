@@ -15,7 +15,6 @@ function ArticleList () {
     return (
         <section className="grid-container">
        {articles.map((article) => {
-        console.log(article)
             return <ArticleCard article={article} key={article.article_id}/>
         })}
         </section>

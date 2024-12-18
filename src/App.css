@@ -51,7 +51,7 @@
 .comment-section {
   margin-top: 20px;
   display: flex;
-  justify-content: center; /* Vertically center items */
+  justify-content: center; 
   align-items: center; 
 
 }
@@ -79,4 +79,9 @@ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 margin-bottom: 20px;
 width: 1190px;
 margin: 10px;
+}
+
+.error-msg {
+  background-color: pink;
+  color: red;
 }
