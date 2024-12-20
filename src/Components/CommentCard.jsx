@@ -1,4 +1,3 @@
-import { Button } from "react-bootstrap";
 function CommentCard ({comment}) {
   
 return (
