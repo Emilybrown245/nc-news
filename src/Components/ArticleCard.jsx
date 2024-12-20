@@ -10,7 +10,7 @@ return (
         <img src={article.article_img_url} className="article-image"/>
         <Card.Text>{article.created_at}</Card.Text>
         <Card.Text>{article.topic}</Card.Text>
-        <Link to={`articles/${article.article_id}`}><button>Read More</button></Link>
+        <Link to={`/articles/${article.article_id}`}><button>Read More</button></Link>
         </Card >
     </div>
 )

@@ -4,7 +4,7 @@ import {useParams} from 'react-router'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios'
 
-function CommentList ({article_id}) {
+function CommentList ({article_id, updateArticleCommentCount}) {
     const { comment_id } = useParams();
     const [comments, setComments] = useState([])
     const [newComment, setNewComment] = useState("")
@@ -12,13 +12,14 @@ function CommentList ({article_id}) {
     const [isLoading, setIsLoading] = useState(false)
     const [isLoadingCommentId, setIsLoadingCommentId] = useState(0)
     const [deletedComment, setDeletedComment] = useState("")
- 
+   
     const loggedInUser = "cooljmessy"
 
     useEffect(() => {
         const getCommentsByArticleId= async () => {
             const { data } = await axios.get(`https://nc-news-lo7q.onrender.com/api/articles/${article_id}/comments`)
             setComments(data.comments)
+            updateArticleCommentCount(data.comments.length);
         }
         getCommentsByArticleId()
     }, [article_id])
@@ -32,6 +33,8 @@ function CommentList ({article_id}) {
             })
             setComments((prevComments) => [data.comment, ...prevComments ])
             setNewComment("")
+            updateArticleCommentCount((comment_count) => comment_count+ 1);
+            
         } catch (err) {
             setError("Failed to post comment. Try again later")
         }
@@ -51,6 +54,7 @@ function CommentList ({article_id}) {
             await axios.delete(`https://nc-news-lo7q.onrender.com/api/comments/${comment_id}`)
            setComments((prevComments) => prevComments.filter((comment) => comment.comment_id !== comment_id))
            setDeletedComment("Comment has been successfully deleted.")
+           updateArticleCommentCount((comment_count) => comment_count - 1);
         } catch (err) {
             setError("Failed to delete comment. Try again.")
         }   finally {

@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import {useParams, Link } from 'react-router'
-import {useEffect, useState, useRef}from 'react'
+import {useEffect, useState, useRef} from 'react'
 import axios from 'axios'
 import CommentList from './CommentList';
 
@@ -10,6 +10,7 @@ function ArticlePage (){
     const [article, setArticle] = useState([])
     const [votes, setVotes] = useState(0)
     const [error, setError] = useState("")
+    const [commentCount, setCommentCount] = useState(0)
   
     const btnRef = useRef()
     const btnRefDownvote = useRef()
@@ -20,7 +21,8 @@ function ArticlePage (){
             const { data } = await axios.get(`https://nc-news-lo7q.onrender.com/api/articles/${article_id}`)
             setArticle(data.article)
             setVotes(data.article.votes)
-            console.log(data.article)
+            setCommentCount(data.article.comment_count)
+           
         }
         getArticleById()
     }, [article_id])
@@ -53,9 +55,10 @@ return  (
         <Button ref={btnRef} onClick={() => { if (btnRef.current) {patchVotes(1); btnRef.current.setAttribute("disabled", "disabled");}}}>Upvote</Button>
         <Button ref={btnRefDownvote} onClick={() =>  {if (btnRefDownvote.current) {patchVotes(-1); btnRefDownvote.current.setAttribute("disabled", "disabled");}}}>Downvote</Button>
     { error && <p className="error-msg">{error}</p> }
-    <Card.Text>Comments: {article.comment_count}</Card.Text>
+    <Card.Text>Comments: {commentCount}</Card.Text>
     </Card >
-    <CommentList article_id={article_id}/>
+
+    <CommentList article_id={article_id} updateArticleCommentCount={setCommentCount}/>
 </div>
 )
 }
