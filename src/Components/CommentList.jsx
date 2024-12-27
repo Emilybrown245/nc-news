@@ -4,7 +4,7 @@ import {useParams} from 'react-router'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios'
 
-function CommentList ({article_id, updateArticleCommentCount}) {
+function CommentList ({article_id, updateArticleCommentCount, user}) {
     const { comment_id } = useParams();
     const [comments, setComments] = useState([])
     const [newComment, setNewComment] = useState("")
@@ -13,7 +13,7 @@ function CommentList ({article_id, updateArticleCommentCount}) {
     const [isLoadingCommentId, setIsLoadingCommentId] = useState(0)
     const [deletedComment, setDeletedComment] = useState("")
    
-    const loggedInUser = "cooljmessy"
+    const loggedInUser = user
 
     useEffect(() => {
         const getCommentsByArticleId= async () => {
@@ -62,16 +62,17 @@ function CommentList ({article_id, updateArticleCommentCount}) {
         }
     }
   
+    
    return (
 <div className="comments-section">
     {error && <p>{error}</p>}
     <ul className="comments-list">
     <div className="comment-item">
     <form onSubmit={handleSubmit}>
-        <label htmlFor="post-comment">Comment: <input type="text" id="post-comment" required placeholder="write a comment" value={newComment} onChange={(e) => setNewComment(e.target.value)}>
+        <label htmlFor="post-comment" className="comment-text">Comment: <input type="text" id="post-comment" required placeholder="write a comment" value={newComment} onChange={(e) => setNewComment(e.target.value)}>
         </input>
         </label>
-        <button type="submit" disabled={isLoading}>{isLoading ? "Posting..." : "Post"}</button>
+        <button className="post-comment-btn" type="submit" disabled={isLoading}><span className="post-btn-text">{isLoading ? "Posting..." : "Post"}</span></button>
         </form>
      </div>
      {deletedComment && <p>{deletedComment}</p>}
@@ -79,7 +80,7 @@ function CommentList ({article_id, updateArticleCommentCount}) {
         return <li key={comment.comment_id}>
             <CommentCard comment={comment}/>
             {comment.author === loggedInUser && (
-        <Button onClick={() => deleteCommentByCommentId(comment.comment_id)} disabled={isLoadingCommentId === comment.comment_id}>{isLoadingCommentId ? "Deleting..." : "Delete"}</Button>
+        <Button className="delete-button" onClick={() => deleteCommentByCommentId(comment.comment_id)} disabled={isLoadingCommentId === comment.comment_id}>{isLoadingCommentId ? "Deleting..." : "Delete"}</Button>
     )}
     </li>
 })}

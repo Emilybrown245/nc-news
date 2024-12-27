@@ -1,17 +1,26 @@
 import Card from 'react-bootstrap/Card'
 import {Link} from 'react-router'
+import dayjs from 'dayjs';
 
 function ArticleCard ({article}) {
+
+    const convertedTime = article.created_at;
+    const formattedDate = dayjs(convertedTime).format('dddd, MMMM D, YYYY');
 return (
     <div className="card-container">
-        <Card style={{ width: "10rem" }} className="card-body" >
-        <Card.Title>{article.title}</Card.Title>
-        <Card.Text>{article.author}</Card.Text>
+        <div className="card-body">
+        <Card style={{ width: "10rem" }}>
+        <Card.Text className="text" id="article-author-text">{article.author}</Card.Text>
         <img src={article.article_img_url} className="article-image"/>
-        <Card.Text>{article.created_at}</Card.Text>
-        <Card.Text>{article.topic}</Card.Text>
-        <Link to={`/articles/${article.article_id}`}><button>Read More</button></Link>
+         <div className="article-card-text-body"> 
+        <Card.Title className="text" id="article-title">{article.title}</Card.Title>
+        <Card.Text className="text">{formattedDate}</Card.Text>
+        <Card.Text className="text">{article.topic}</Card.Text>
+        <Link to={`/articles/${article.article_id}`}>
+    <button className="read-more-btn"><span className='read-link-text'>Read More</span></button></Link>
+        </div>
         </Card >
+        </div>
     </div>
 )
 }

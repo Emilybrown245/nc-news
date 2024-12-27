@@ -16,8 +16,11 @@ if (params.length > 0) url += `?${params.join('&')}`;
     const {data} = await axios.get(url)
   
     return Array.isArray(data.articles) ? data.articles : [];
-
-
 }
 
-
+export const getUsers = async () => {
+    let url = `${BASEURL}/users`
+    const {data} = await axios.get(url)
+    console.log(data)
+    return data.users;
+}

@@ -1,7 +1,9 @@
 import {useNavigate, useLocation} from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
+function NavBar ({user, setUser}) {
 
-function NavBar () {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -44,36 +46,52 @@ function NavBar () {
     updateUrlWithFilters(updatedParams);
     }
   
+      const logOutAndReset = () => {
+          // Clear session or authentication token
+          sessionStorage.clear(); // Or localStorage.clear();
+          document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  
+          // Reset user state
+          setUser({ name: "", loggedIn: false });
+  
+          // Redirect to login or home page
+          navigate("/login");
+      };
 
     return(
-<div>
+      <nav>
+<div className="navbar-container">
   <div>
-    <label htmlFor="topic-dropdown">Select a topic: </label>
+    <label htmlFor="topic-dropdown" className="navbar-label">Select a topic: </label>
       <select id="topic-dropdown" defaultValue="Select" onChange={(e) => handleFilterChange('topic', e.target.value)}>
-        <option>Select</option>
+        <option></option>
         <option>coding</option>
         <option>football</option>
         <option>cooking</option>
       </select>
       </div>
       <div>
-      <label htmlFor="sort-dropdown">Sort: </label>
-      <select id="sort-dropdown" defaultValue="Sort" onChange={(e) => handleFilterChange('sort_by', e.target.value)}>
-        <option>Sort</option>
+      <label htmlFor="sort-dropdown-navbar" className="navbar-label">Sort: </label>
+      <select id="sort-dropdown-navbar" defaultValue="Sort" onChange={(e) => handleFilterChange('sort_by', e.target.value)}>
+        <option></option>
         <option>comment_count</option>
         <option>votes</option>
         <option>created_at</option>
       </select>
       </div>
       <div>
-      <label htmlFor="order-dropdown">Order: </label>
-      <select id="order-dropdown" defaultValue="Select" onChange={(e) => handleFilterChange('order', e.target.value)}>
-        <option>Order</option>
+      <label htmlFor="select-order" className="navbar-label">Order: </label>
+      <select id="select-order" defaultValue="Select" onChange={(e) => handleFilterChange('order', e.target.value)}>
+        <option></option>
         <option>asc</option>
         <option>desc</option>
       </select>
       </div>
+  <div>
+  <Button onClick={logOutAndReset} id="log-out-btn" className="read-more-btn"><span className="log-out-text">Log Out</span></Button>
+  </div>
 </div>
+</nav>
         )
 }
 

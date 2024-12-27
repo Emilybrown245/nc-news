@@ -1,17 +1,20 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+:root {
   line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
   color: rgba(26, 24, 24, 0.87);
-  background-color: #fffbfb;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #7dc0ef;
 }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: "Outfit", serif;
+}
+ p {
+  color: #27032b;
+  font-family: "Outfit", serif;
+ }
+
+/*
 
 body {
   margin: 0;
