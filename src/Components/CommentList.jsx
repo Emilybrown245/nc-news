@@ -3,6 +3,7 @@ import CommentCard from './CommentCard'
 import {useParams} from 'react-router'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios'
+import Collapsible from './Collapsible'
 
 function CommentList ({article_id, updateArticleCommentCount, user}) {
     const { comment_id } = useParams();
@@ -62,7 +63,7 @@ function CommentList ({article_id, updateArticleCommentCount, user}) {
         }
     }
   
-    
+
    return (
 <div className="comments-section">
     {error && <p>{error}</p>}
@@ -72,18 +73,20 @@ function CommentList ({article_id, updateArticleCommentCount, user}) {
         <label htmlFor="post-comment" className="comment-text">Comment: <input type="text" id="post-comment" required placeholder="write a comment" value={newComment} onChange={(e) => setNewComment(e.target.value)}>
         </input>
         </label>
-        <button className="post-comment-btn" type="submit" disabled={isLoading}><span className="post-btn-text">{isLoading ? "Posting..." : "Post"}</span></button>
+        <Button className="post-comment-btn" type="submit" disabled={isLoading}><span className="post-btn-text">{isLoading ? "Posting..." : "Post"}</span></Button>
         </form>
      </div>
      {deletedComment && <p>{deletedComment}</p>}
+     <Collapsible initialCount={10} >
     {comments.map((comment) => {
         return <li key={comment.comment_id}>
-            <CommentCard comment={comment}/>
+            <CommentCard comment={comment} user={user}/>
             {comment.author === loggedInUser && (
         <Button className="delete-button" onClick={() => deleteCommentByCommentId(comment.comment_id)} disabled={isLoadingCommentId === comment.comment_id}>{isLoadingCommentId ? "Deleting..." : "Delete"}</Button>
     )}
     </li>
 })}
+</Collapsible>
     </ul>
 </div>
    ) 

@@ -88,7 +88,7 @@ a {
   color: #FFF;
 }
 
-.read-link-text{
+.link-text{
   font-family: "Outfit", serif;
   color: #fff !important;
   font-size: 15px;
@@ -110,14 +110,44 @@ a {
   margin-top: 20px;
   margin-left: 113px;
 }
-.read-more-btn{
+
+#link-to-home-page{
+  margin: 20px;
+}
+
+#show-more-articles-btn{
+  margin-left: 950px;
+  height: 50px;
+  width: 140px;
+}
+.link{
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-size: 18px;
+  background-color: #F15152;
+  width: 120px;
+  height: 40px;
+  border: #F15152;
+  border-radius: 5px;
+  padding-top: 10px;
+}
+
+.log-out-btn{ 
   background-color: #F15152;
   width: 100px;
   height: 40px;
   border: #F15152;
   border-radius: 4px;
+margin-left: 500px;
 }
 
+.log-out-btn-text{
+  color: white;
+  font-family: "Outfit", serif;;
+  font-size: 15px;
+}
 .article-page-header {
   font-size: large;
   font-weight: bold;
@@ -272,7 +302,7 @@ h1 {
   position: absolute; 
   top: 10px; 
   right: 20px; 
-  width: 100px;
+  width: 120px;
   height: 100%;
 }
 
@@ -288,16 +318,20 @@ h1 {
   background-color: #000;
   width: 120px; 
   height: 120px;
-  margin-bottom: 10px; 
-position: absolute;
-  margin-right: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  
 }
 
 .selected-user-avatar{
   border: solid 10px #fff;
-  margin-top: 2px;
-  margin-right: 1px;
-  position: relative;
+  margin: 0px;
+  width: 80px; 
+  height: 80px;
 }
 
 #user-dropdown{
@@ -369,7 +403,7 @@ select {
 }
 
 .user-card-header{
-margin-left: 65px;
+margin-left: 75px;
 font-size: 18px;
 font-family: "Pacifico", serif;
 color: #fff;
@@ -400,9 +434,15 @@ color: #fff;
   display: flex;
   align-items: center; /* Vertically aligns items in the center */
   justify-content: flex-start; /* Aligns items to the left */
-  gap: 15px; /* Adds spacing between the dropdowns */
+  gap: 10px; 
   padding: 10px; 
   background-color: #3066BE;
+  width: 100%;
+}
+
+.button-container{
+  width: 50px;
+  margin-left: -90px;
 }
 
 #article-title{
@@ -412,18 +452,22 @@ color: #fff;
 #topic-dropdown{
   background-color: #D183C9;
   font-family: "Outfit", serif;
+margin-left: 5px;
 
 }
 
 #sort-dropdown-navbar{
   background-color: #FFD670;
   font-family: "Outfit", serif;
+  margin-left: 5px;
 
 }
 
 #select-order{
   background-color: #7dc0ef;
   font-family: "Outfit", serif;
+  margin-left: 5px;
+  
   
 }
 
@@ -446,7 +490,14 @@ color: #fff;
 }
 
 #log-out-btn{
-  margin-left: 400px;
+  color: #fff;
+  font-family: "Outfit", serif;
+  font-size: 20px;
+  cursor: pointer; 
+}
+
+button:hover {
+  cursor: pointer; 
 }
 
 #default-login-text{
@@ -455,3 +506,20 @@ color: #fff;
   justify-content: center;
   margin-left: -40px;
 }
+
+.comment-body-article-page{
+  font-weight: 500;
+}
+
+#read-more{
+  margin-left: 70px;
+}
+
+.loading-msg{
+  margin-top: 150px;
+  margin-left: 1000px;
+  color: #fff;
+  font-family: "Outfit", serif;
+  font-size: 20px;
+}
+

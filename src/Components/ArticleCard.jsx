@@ -16,8 +16,7 @@ return (
         <Card.Title className="text" id="article-title">{article.title}</Card.Title>
         <Card.Text className="text">{formattedDate}</Card.Text>
         <Card.Text className="text">{article.topic}</Card.Text>
-        <Link to={`/articles/${article.article_id}`}>
-    <button className="read-more-btn"><span className='read-link-text'>Read More</span></button></Link>
+        <Link to={`/articles/${article.article_id}`} className="link"><span className='link-text'>Read More</span></Link>
         </div>
         </Card >
         </div>

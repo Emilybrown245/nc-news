@@ -13,7 +13,8 @@ function UserCard ({selectedUser}) {
     <Card.Title className="user-card-header">{selectedUser.username}</Card.Title>
     <img src={selectedUser.avatar_url} alt={`${selectedUser.username}'s avatar`} className="user-card-image"/> 
     <Card.Text className="user-card-text">{selectedUser.name}</Card.Text>
-    <Link to={'/articles'}><Button variant="dark" className="user-card-read-more-btn">Read Articles</Button></Link>
+    <Link to="/articles" className="link" id="read-more"><span className='link-text'>Read Articles</span>
+</Link>
      </Card> 
         </div>
     )

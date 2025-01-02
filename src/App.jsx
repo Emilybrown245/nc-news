@@ -8,6 +8,8 @@ import ArticlePage from './Components/ArticlePage'
 import UserCard from './Components/UserCard';
 import UserLogin from './Components/UserLogin'
 import {getUsers} from './api'
+import Collapsible from './Components/Collapsible';
+import CommentList from './Components/CommentList';
 
 function App() {
   const location = useLocation()
@@ -48,13 +50,13 @@ function App() {
    {(location.pathname !== '/login' && location.pathname !== '/user-card' && location.pathname !== '/articles/:article_id') && <NavBar user={user} setUser={setUser}/>}
   <Routes>
     <Route path="/login" element={<UserLogin user={user} setUser={setUser} listUsers={listUsers} selectedUser={selectedUser} error={error}/>}></Route>
-    <Route path="/articles/:article_id" element={<ArticlePage user={user}/>}></Route>
-    <Route path="/articles" element={<ArticleList />}></Route>
+    <Route path="/articles/:article_id" element={<ArticlePage user={user} />}></Route>
     <Route path="/user-card" element={selectedUser ? (
                 <UserCard selectedUser={selectedUser} />
             ) : (
                 <p>Select a user to view details.</p>
             )}></Route>
+    <Route path="/articles" element={<Collapsible><ArticleList /></Collapsible>}></Route>
   </Routes>
   </>
  )

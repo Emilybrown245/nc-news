@@ -9,15 +9,20 @@ import dayjs from 'dayjs';
 function ArticlePage ({user}){
     const {article_id} = useParams();
     const [article, setArticle] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
     const [votes, setVotes] = useState(0)
     const [error, setError] = useState("")
     const [commentCount, setCommentCount] = useState(0)
-    const [downvotes, setDownvotes] = useState(0); 
+    const [isUpvoteDisabled, setIsUpvoteDisabled] = useState(false);
+    const [isDownvoteDisabled, setIsDownvoteDisabled] = useState(false);
+    const [clickCount, setClickCount] = useState(0);
+    const [firstClick, setFirstClick] = useState(null);
   
     const btnRef = useRef()
     const btnRefDownvote = useRef()
 
     useEffect(() => {
+        setIsLoading(true)
         const getArticleById = async () => {
             
             const { data } = await axios.get(`https://nc-news-lo7q.onrender.com/api/articles/${article_id}`)
@@ -39,25 +44,59 @@ function ArticlePage ({user}){
         } catch (error) {
             setVotes(previousVotes)
             setError("Failed to vote. Try again later")
-        } 
+        } finally{
+            setIsLoading(false)
+        }
        }
 
-       const handleDownvote = () => {
-        if (downvotes < 2) { // Allow up to two downvotes
-          setDownvotes(prevDownvotes => prevDownvotes + 1);
-          patchVotes(-1); // Call the patchVotes function to update votes
-          if (btnRefDownvote.current && downvotes + 1 === 2) {
-            btnRefDownvote.current.setAttribute("disabled", "disabled"); // Disable downvote button after 2 downvotes
+       const handleUpvoteClick = async () => {
+        if (!firstClick) {
+            setFirstClick("upvote"); 
           }
-        }
-      };
+
+          if(firstClick === "downvote"){
+            await patchVotes(2)
+          } else {
+            await patchVotes(1)
+          }
+        setClickCount((prevCount) => prevCount + 1);
+        if (clickCount === 0 && firstClick === "upvote") {
+            setIsDownvoteDisabled(false); 
+          } else {
+            setIsDownvoteDisabled(false); 
+          }
+          setIsUpvoteDisabled(true); 
+       }
+
+       const handleDownvoteClick = async () => {
+        if (!firstClick) {
+            setFirstClick("downvote"); 
+          }
+      
+          if (firstClick === "upvote") {
+            await patchVotes(-2);
+          } else {
+            await patchVotes(-1);
+          }
+        setIsDownvoteDisabled(true); 
+        setIsUpvoteDisabled(false); 
+        setClickCount((prevCount) => prevCount + 1);
+        if (clickCount === 0 && firstClick === "downvote") {
+            setIsDownvoteDisabled(false); 
+          } else {
+            setIsDownvoteDisabled(true); 
+          }
+          setIsUpvoteDisabled(false);
+       }
+
+    const areBothDisabled = clickCount >= 2;
     
       const convertedTime = article.created_at;
       const formattedDate = dayjs(convertedTime).format('dddd, MMMM D, YYYY');
       
 return  (
 <div className="card-container-article-page">
-    <Link to={'/articles'}><Button className="home-page-btn" variant="dark"><span className="home-page-text">Home Page</span></Button></Link>
+    <Link to={'/articles'} id='link-to-home-page' className="link"><span className="link-text">Home Page</span></Link>
     <Card style={{ width: "10rem" }} className="card-body-article-page" >
     <Card.Title className="article-page-header">{article.title}</Card.Title>
     <Card.Text className="article-page-author">{article.author}</Card.Text>
@@ -68,19 +107,22 @@ return  (
     <Card.Text>{formattedDate}</Card.Text>
     <Card.Text>Topic: {article.topic}</Card.Text>
     <Card.Text>Votes: {votes}</Card.Text>
-      <Button ref={btnRef} onClick={() => { if (btnRef.current) {patchVotes(1); btnRef.current.setAttribute("disabled", "disabled");}}}>  <img
-          src="https://vignette1.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729"
-          alt="Upvote" className="upvote-downvote-btns"
-        />Upvote</Button>
-        <Button ref={btnRefDownvote} onClick={handleDownvote} disabled={downvotes >= 2}>
-        <img
-          src="https://vignette.wikia.nocookie.net/mrmen/images/7/78/Mr-Grumpy-3A.PNG/revision/latest?cb=20170707233013"
-          alt="Downvote" className="upvote-downvote-btns"
-        />Downvote</Button>
+
+        <Button onClick={handleUpvoteClick}
+         disabled={isUpvoteDisabled || areBothDisabled}> <img
+         src="https://vignette1.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729"
+         alt="Upvote" className="upvote-downvote-btns"
+       />Upvote</Button>
+
+         <Button onClick={handleDownvoteClick}
+         disabled={isDownvoteDisabled || areBothDisabled}><img
+         src="https://vignette.wikia.nocookie.net/mrmen/images/7/78/Mr-Grumpy-3A.PNG/revision/latest?cb=20170707233013"
+         alt="Downvote" className="upvote-downvote-btns"
+       />Downvote</Button>
+
     { error && <p className="error-msg">{error}</p> }
     <Card.Text>Comments: {commentCount}</Card.Text>
     </Card >
-
     <CommentList article_id={article_id} updateArticleCommentCount={setCommentCount} user={user}/>
 </div>
 )

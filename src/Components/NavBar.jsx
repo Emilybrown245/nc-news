@@ -47,14 +47,11 @@ function NavBar ({user, setUser}) {
     }
   
       const logOutAndReset = () => {
-          // Clear session or authentication token
-          sessionStorage.clear(); // Or localStorage.clear();
+          sessionStorage.clear(); 
           document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   
-          // Reset user state
           setUser({ name: "", loggedIn: false });
   
-          // Redirect to login or home page
           navigate("/login");
       };
 
@@ -87,8 +84,8 @@ function NavBar ({user, setUser}) {
         <option>desc</option>
       </select>
       </div>
-  <div>
-  <Button onClick={logOutAndReset} id="log-out-btn" className="read-more-btn"><span className="log-out-text">Log Out</span></Button>
+  <div className="button-container">
+  <Button onClick={logOutAndReset} className="log-out-btn"><span className="log-out-btn-text">Log Out</span></Button>
   </div>
 </div>
 </nav>
