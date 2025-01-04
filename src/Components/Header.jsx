@@ -22,7 +22,7 @@ function Header({user, selectedUser}) {
         )}
         </div>
         </section>
-    )
+      )
 }
 
 export default Header
