@@ -258,9 +258,9 @@ margin-left: 74px;
   border: solid 2px #799db3;
   border-radius: 10px;
   height: 40%;
-  width: 80%; 
+  width: 80%; /* Adjust width for small screens */
   max-width: 500px;
-  margin: 20px auto; 
+  margin: 20px auto; /* Center both vertically and horizontally */
   padding: 10px;
   background-color: #ffd670;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -381,6 +381,38 @@ margin-left: 74px;
     height: 40px; 
     border: 2px solid white; 
   }
+
+  .card-body-user {
+    max-width: 100% !important; /* Full width on very small screens */
+    padding: 10px;
+}
+
+.user-card-header {
+    font-size: 1.4rem !important; 
+    margin-left: 60px !important;/* Smaller font size */
+}
+
+.user-card-text {
+    font-size: 0.9rem !important;
+    margin-left: 95px !important; /* Smaller text */
+}
+
+.link-text {
+    font-size: 0.9rem !important; /* Smaller link text */
+}
+
+/* Make the avatar smaller */
+.user-card-image {
+    width: 70% !important; /* Reduce avatar size */
+    height: auto !important;
+}
+
+.user-card-container{
+  height: 400px !important;
+  width: 70% !important;
+  margin-left: 50px !important;
+margin-top: 10% !important;
+}
 }
 h1 {
   position: absolute; 
@@ -426,6 +458,14 @@ h1 {
   width: 120px;
   height: 100%;
 }
+
+/* .selected-user-avatar {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+ 
+  margin: 0; 
+} */
 
 .selected-user-avatar-button{
   background-color: #000;
@@ -500,19 +540,22 @@ select {
   justify-content: center;
   border: solid 2px #799db3;
   border-radius: 10px;
-  width: 500px;
-  height: 500px;
-  margin: 85px 450px;
+ width: 40%;
+height: 50% !important;
+margin-left: 30%;
+margin-top: 7%;
+  /* margin: 85px 450px; */
   background-color: #D183C9;
   border: solid 4px black;
+  padding: 10px;
 }
 
 .user-card-image{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 250px;
-  height: 250px;
+  width: 250px !important;
+  max-height: 250px;
   margin-left: 20px;
   margin: 10px;
 }
@@ -531,6 +574,8 @@ color: #fff;
   font-size: 28px;
   font-weight: 500;
 }
+
+
 
 .user-card-read-more-btn{
   width: 120px;

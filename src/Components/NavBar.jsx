@@ -52,7 +52,7 @@ function NavBar ({user, setUser}) {
   
           setUser({ name: "", loggedIn: false });
   
-          navigate("/login");
+          navigate("/");
       };
 
     return(

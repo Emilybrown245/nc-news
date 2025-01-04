@@ -47,9 +47,9 @@ function App() {
  return (
   <>
   <Header user={user} selectedUser={selectedUser}/>
-   {(location.pathname !== '/login' && location.pathname !== '/user-card' && location.pathname !== '/articles/:article_id') && <NavBar user={user} setUser={setUser}/>}
+   {(location.pathname !== '/' && location.pathname !== '/user-card' && location.pathname !== '/articles/:article_id') && <NavBar user={user} setUser={setUser}/>}
   <Routes>
-    <Route path="/login" element={<UserLogin user={user} setUser={setUser} listUsers={listUsers} selectedUser={selectedUser} error={error}/>}></Route>
+    <Route path="/" element={<UserLogin user={user} setUser={setUser} listUsers={listUsers} selectedUser={selectedUser} error={error}/>}></Route>
     <Route path="/articles/:article_id" element={<ArticlePage user={user} />}></Route>
     <Route path="/user-card" element={selectedUser ? (
                 <UserCard selectedUser={selectedUser} />
