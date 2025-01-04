@@ -1,8 +1,6 @@
 import {useState} from 'react'
 import UserCard from './UserCard';
 import Button from 'react-bootstrap/Button'
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useNavigate } from 'react-router-dom'; 
 
 function UserLogin ({user, setUser, listUsers, selectedUser, error}) {
