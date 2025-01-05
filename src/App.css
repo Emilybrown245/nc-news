@@ -11,7 +11,7 @@
 }
 
 .card-container {
-
+flex-wrap: wrap; 
   display: flex;
   justify-content: center;
   align-items: center; 
@@ -52,11 +52,11 @@
 
 .card-body-article-page {
   justify-content: center;
-  width: 1190px !important;
+  width: 100% !important;
+  max-width: 1190px;
   align-items: center;
- margin-left: 114px;
- margin-top: 20px;
-  padding: 10px;
+  margin: 20px auto;
+  padding: 20px;
   background: #fff;
   box-shadow: 0 4px 8px rgba(23, 23, 23, 0.1);
   border-radius: 8px;
@@ -66,12 +66,14 @@
   display: flex;
   align-items: flex-start;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .article-page-image { 
   height: auto; 
   object-fit: cover; 
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
   border-radius: 2px; 
 }
 
@@ -83,8 +85,8 @@
 .text{
   color: #27032b;
   display: flex;
-  align-items: left;
-  justify-content: left;
+  align-items: flex-start;
+  justify-content: flex-start;
   margin-left: 10px;
 }
 
@@ -111,18 +113,20 @@ a {
   height: 40px;
   border: #F15152;
   border-radius: 4px;
-  margin-top: 20px;
-  margin-left: 113px;
+  margin: 20px auto;
+ display: block;
 }
 
 #link-to-home-page{
   margin: 20px;
+  display: block;
 }
 
 #show-more-articles-btn{
-  margin-left: 950px;
+  margin: 20px auto;
   height: 50px;
   width: 140px;
+  display: block;
 }
 .link{
   display: inline-block;
@@ -165,10 +169,13 @@ margin-left: 500px;
   display: flex;
   justify-content: center; 
   align-items: center; 
+  flex-wrap: wrap;
 }
 
 ul{
   list-style-type: none;
+  padding: 0; /* Remove default padding */
+  margin: 0;
 }
 .comment-list {
   display: flex;
@@ -184,25 +191,29 @@ display: flex;
 flex-direction: column; 
 background-color: #f9f9f9;
 padding: 15px;
-width: 800px; 
+width: 100% !important; 
+max-width: 1182px; /* Limit maximum width */
 border-radius: 5px;
 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 margin-bottom: 20px;
-width: 1182px;
-margin-left: 74px;
+margin-left: auto;
+margin-right: auto; 
 }
 
 .delete-button{
   background-color: #F15152;
-  width: 100px;
+  width: 100%;
+  max-width: 100px;
   height: 40px;
   border: #F15152;
   border-radius: 4px;
   color: #fff;
   font-size: 15px;
   font-family: "Outfit", serif;
-  margin-left: 73px;
-  margin-bottom: 18px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 10px 100px;
 }
 
 #post-comment{
@@ -388,37 +399,10 @@ margin-left: 74px;
 @media (max-width: 480px) {
   .grid-container{
 display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
 
-  .card-body {
-    margin-top: 15px;
-    width: 350px;
-    height: 450px;
   
-  }
-  .article-card-text-body{
-    width: 350px !important;
-    height: 200px !important;
-  
-  }
-  #article-title{
-    font-size: 16px;
-  }
-
-  .text{
-    font-size: 14px;
-  }
-  
-  #article-author-text{
-    font-family: "Pacifico", serif;
-    font-size: 14px;
-  }
-  .article-image {
-    width: 300px;
-    border-radius: 8px;
-    margin: 15px;
-  }
   /* .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -611,6 +595,16 @@ select {
   font-size: 0.9rem;              /* Adjust font size for text */
 }
 
+.comment-item {
+  max-width: 90%; /* Take up most of the screen */
+  padding: 10px;
+}
+
+.comment-list {
+  gap: 15px; /* Reduce gap between items */
+}
+
+
 }
  @media (max-device-width: 320px) { 
   .grid-container{
@@ -633,7 +627,7 @@ select {
         font-size: 14px;
       }
 
-      .text{
+      text{
         font-size: 14px;
       }
       
@@ -785,6 +779,16 @@ select {
 .article-card-text-body{
   width: 100%;
 }
+
+.comment-item {
+  max-width: 90%; /* Take up most of the screen */
+  padding: 10px;
+}
+
+.comment-list {
+  gap: 15px; /* Reduce gap between items */
+}
+
 } 
 
 
@@ -994,7 +998,7 @@ color: #fff;
   display: block;
 }
 
-.link-text {
+/* .link-text {
   display: inline-block;
   font-size: 1rem;
   color: #fff;
@@ -1003,7 +1007,7 @@ color: #fff;
   border-radius: 5px;
   text-decoration: none;
   text-align: center;
-}
+} */
 
 /* nav bar */
 .navbar-container {

@@ -95,6 +95,7 @@ function ArticlePage ({user}){
       const formattedDate = dayjs(convertedTime).format('dddd, MMMM D, YYYY');
       
 return  (
+
 <div className="card-container-article-page">
     <Link to={'/articles'} id='link-to-home-page' className="link"><span className="link-text">Home Page</span></Link>
     <Card style={{ width: "10rem" }} className="card-body-article-page" >
@@ -107,7 +108,7 @@ return  (
     <Card.Text>{formattedDate}</Card.Text>
     <Card.Text>Topic: {article.topic}</Card.Text>
     <Card.Text>Votes: {votes}</Card.Text>
-
+    <div className="vote-buttons">
         <Button onClick={handleUpvoteClick}
          disabled={isUpvoteDisabled || areBothDisabled}> <img
          src="https://vignette1.wikia.nocookie.net/mrmen/images/7/7f/Mr_Happy.jpg/revision/latest?cb=20140102171729"
@@ -119,10 +120,11 @@ return  (
          src="https://vignette.wikia.nocookie.net/mrmen/images/7/78/Mr-Grumpy-3A.PNG/revision/latest?cb=20170707233013"
          alt="Downvote" className="upvote-downvote-btns"
        />Downvote</Button>
-
+</div>
     { error && <p className="error-msg">{error}</p> }
     <Card.Text>Comments: {commentCount}</Card.Text>
     </Card >
+
     <CommentList article_id={article_id} updateArticleCommentCount={setCommentCount} user={user}/>
 </div>
 )
