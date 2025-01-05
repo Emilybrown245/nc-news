@@ -449,9 +449,9 @@ display: grid;
     padding: 10px; 
     border: solid 3px black; 
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); 
-    position: fixed;
-    top: calc(50% + 50px); 
-    transform: translate(-50%, -50%);
+    position: absolute !important;
+    top: calc(50% + 50px) !important; 
+    transform: translate(-50%, -50%) !important;
   }
 
   .article-image {
@@ -501,12 +501,15 @@ display: grid;
 
   .header{
     width: 100%;
+
+  position: relative !important; /* Ensure it is part of the stacking context */
+  z-index: 2000;
   }
   h1 {
      margin-top: 90px !important;
     left: 15px;
     margin-right: 10px;
-    font-size: 3rem !important;
+    font-size: 3.5rem !important;
   }
 
   .user-avatar-nav-bar {
@@ -515,15 +518,16 @@ display: grid;
   }
 
   .selected-user-avatar-button {
-    width: 50px; 
-  
-    height: 50px; 
+    border: 15px solid black !important;
+    width: 110px !important; 
+    height: 110px !important; 
     z-index: 2; 
+    margin-left:15px;
   }
 
   .selected-user-avatar {
-    width: 40px; 
-    height: 40px; 
+    width: 90px !important; 
+    height: 90px !important; 
     border: 2px solid white; 
   }
 
@@ -682,12 +686,10 @@ max-width: 90%;
     height: 20px !important;
   }
 
-  .header{
-    width: 100%;
-  }
+ 
   h1 {
      margin-top: 100px !important;
-    font-size: 2.3rem !important;
+    font-size: 2.5rem !important;
   }
 
   .login-button{
@@ -708,9 +710,9 @@ max-width: 90%;
   }
 
   .selected-user-avatar-button {
-    border: 8px solid black;
-    width: 90px !important; 
-    height: 90px !important; 
+    border: 15px solid black;
+    width: 85px !important; 
+    height: 85px !important; 
     z-index: 2; 
     margin-left:15px;
   }
@@ -769,9 +771,9 @@ margin-left: 25px !important;
   padding: 8px;
   border: solid 2px black; 
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
-  position: fixed;
-  top: calc(50% + 50px); 
-  transform: translate(-50%, -50%);
+  position: absolute !important;
+  top: calc(50% + 50px) !important; 
+  transform: translate(-50%, -50%) !important;
 }
 
  /* nav bar */
@@ -849,13 +851,14 @@ h1 {
 
 .header {
   width: 100%;
-  position: relative; 
   background-color: #F15152;
   color: #ACCBE1;
   height: 150px;
   font-family: "Outfit", serif;
   overflow: hidden;
-  z-index: 1; 
+
+  position: relative !important; 
+  z-index: 2000 !important;
 }
 
 .nc-news-background {
