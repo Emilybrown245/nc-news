@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box; /* Ensure padding and border are included in width calculations */
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -316,25 +320,25 @@ margin-left: 74px;
   }
 
 
-  .navbar-container {
+  /* .navbar-container {
     display: flex;
     align-items: flex-start; 
     gap: 15px;
-  }
+  } */
 
-  #topic-dropdown, #sort-dropdown-navbar, #select-order {
+  /* #topic-dropdown, #sort-dropdown-navbar, #select-order {
     width: 100%; 
     margin-bottom: 10px;
-  }
+  } */
 
-  .button-container {
+  /* .button-container {
     margin: 0 auto;
     text-align: center;
-  }
+  } */
 
-  .log-out-btn {
+  /* .log-out-btn {
     width: 100%;
-  }
+  } */
 /* 
   .user-card-container {
     width: 100%;
@@ -359,18 +363,71 @@ margin-left: 74px;
     font-size: 0.9rem;
     padding: 8px 15px;
   }
+
+  /* nav bar */
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dropdown-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  select {
+    width: 100%;
+  }
+
+  .button-container {
+    align-self: center;
+    margin-top: 15px;
+  }
 }
 
 @media (max-width: 480px) {
-  .grid-container {
+  .grid-container{
+display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .card-body {
+    margin-top: 15px;
+    width: 350px;
+    height: 450px;
+  
+  }
+  .article-card-text-body{
+    width: 350px !important;
+    height: 200px !important;
+  
+  }
+  #article-title{
+    font-size: 16px;
+  }
+
+  .text{
+    font-size: 14px;
+  }
+  
+  #article-author-text{
+    font-family: "Pacifico", serif;
+    font-size: 14px;
+  }
+  .article-image {
+    width: 300px;
+    border-radius: 8px;
+    margin: 15px;
+  }
+  /* .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px !important; 
     padding: 20px;
     justify-items: center; 
-  }
+  } */
 
-  .card-body {
+  /* .card-body {
     border-radius: 10px; 
     text-align: center;
     margin-top: 50px;
@@ -378,9 +435,9 @@ margin-left: 74px;
     height: 300px;
     background-color: #fff;
     box-sizing: border-box;
-  }
+  } */
 
-  .article-card-text-body{
+  /* .article-card-text-body{
     background-color: #fff;
     border-radius: 10px;;
     width: 350px;
@@ -389,7 +446,7 @@ margin-left: 74px;
     z-index: 1;
     position: absolute;
     background-color: #fff;
-  }
+  } */
 
   .article-image {
     width: 320px;
@@ -450,6 +507,7 @@ margin-left: 74px;
 
   .selected-user-avatar-button {
     width: 50px; 
+  
     height: 50px; 
     z-index: 2; 
   }
@@ -489,33 +547,33 @@ margin-left: 74px;
 } 
 
 
-.navbar-container {
+/* .navbar-container {
   height: 150px;
   width: 100% !important;
-}
+} */
 
-#topic-dropdown, #sort-dropdown-navbar, #select-order {
+/* #topic-dropdown, #sort-dropdown-navbar, #select-order {
   font-size: 0.9rem;
   padding: 5px;
  margin-top: 5px;
   width: 100px !important;
 
-}
+} */
 
-.navbar-container > div {
+/* .navbar-container > div {
   flex-direction: column;
   width: 100% !important; 
   margin-top: -50px;
-}
+} */
 
-.log-out-btn {
+/* .log-out-btn {
   font-size: 0.9rem;
   padding: 5px 10px;
   margin-left: -55px;
   margin-top: 60px;
   width: 100px;
  
-}
+} */
 
 /* .user-card-header {
   font-size: 0.9rem;
@@ -531,8 +589,64 @@ margin-left: 74px;
   padding: 6px 10px;
 }
 
+/* nav bar */ 
+.navbar-label {
+  font-size: 0.8rem;
+}
+
+select {
+  font-size: 0.9rem;
+}
+
+
+.log-out-btn {
+  width: auto;                   /* Allow the button to size dynamically */
+  padding: 5px 15px;             /* Add padding for a better tap target */
+  font-size: 0.9rem;             /* Adjust font size for smaller screens */
+  text-align: center;               /* Maintain readability */
+}
+
+.log-out-btn-text {
+  white-space: nowrap;           /* Prevent text from wrapping to the next line */
+  font-size: 0.9rem;              /* Adjust font size for text */
+}
+
 }
  @media (max-device-width: 320px) { 
+  .grid-container{
+    display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      }
+
+      .card-body {
+        margin-top: 15px;
+        width: 300px;
+        height: 400px;
+      
+      }
+      .article-card-text-body{
+        width: 300px !important;
+        height: 100px !important;
+      
+      }
+      #article-title{
+        font-size: 14px;
+      }
+
+      .text{
+        font-size: 14px;
+      }
+      
+      #article-author-text{
+        font-family: "Pacifico", serif;
+        font-size: 12px;
+      }
+      .article-image {
+        width: 280px;
+        border-radius: 8px;
+        margin: 9px;
+      }
+
   .nc-news-background {
     width: 80px !important;
     height: 20px !important;
@@ -564,7 +678,7 @@ margin-left: 74px;
   }
 
   .selected-user-avatar-button {
-    border: 10px solid black;
+    border: 8px solid black;
     width: 90px !important; 
     height: 90px !important; 
     z-index: 2; 
@@ -620,8 +734,57 @@ margin-left: 25px !important;
 } */
 
 .user-card-container{
-  margin-top: 60px;
+  margin-top: 65px !important;
  } 
+
+ /* nav bar */
+ nav {
+  width: 100%;   
+  margin: 0;                /* Ensure navbar takes full width */               /* Add some padding */
+         /* Include padding in width calculation */
+}
+
+.navbar-container {
+  display: flex;
+  flex-direction: column;        /* Stack items vertically */
+  align-items: center;           /* Center items horizontally */
+                 /* Add space between elements */
+}
+
+.navbar-label {
+  font-size: 0.8rem;             /* Reduce font size for smaller screens */
+  margin-bottom: 5px;            /* Add space below labels */
+  text-align: center;            /* Center-align labels */
+}
+
+select {
+  width: 90%;                    /* Make dropdowns responsive */
+  padding: 5px;                  /* Adjust padding for smaller dropdowns */
+  font-size: 0.9rem;             /* Adjust font size */
+}
+
+.button-container {
+  width: 100%;                   /* Ensure button container takes full width */
+  display: flex;
+  justify-content: center;       /* Center the button horizontally */
+  margin-top: 10px;              /* Add space above the button */
+}
+
+.log-out-btn {
+  width: auto;                   /* Allow the button to size dynamically */
+  padding: 5px 15px;             /* Add padding for a better tap target */
+  font-size: 0.9rem;             /* Adjust font size for smaller screens */
+  text-align: center;               /* Maintain readability */
+}
+
+.log-out-btn-text {
+  white-space: nowrap;           /* Prevent text from wrapping to the next line */
+  font-size: 0.9rem;              /* Adjust font size for text */
+}
+
+.article-card-text-body{
+  width: 100%;
+}
 } 
 
 
@@ -769,13 +932,14 @@ margin-top: 7%;
 position: fixed; 
 top: 50%; 
 left: 50%; 
+margin-top: 10px;
 transform: translate(-50%, -50%); 
 width: 80%; 
 max-width: 400px; 
 height: auto; 
 padding: 20px; 
 background-color: #D183C9;
-  border: solid 2px black; 
+  border: solid 4px black; 
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 border-radius: 8px; 
 z-index: 1000; 
@@ -840,6 +1004,92 @@ color: #fff;
   text-decoration: none;
   text-align: center;
 }
+
+/* nav bar */
+.navbar-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #3066BE;/* Light background for visibility */
+}
+
+.dropdown-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Spacing between dropdowns */
+}
+
+.dropdown-group > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.navbar-label {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #fff;
+  font-family: "Outfit", serif;
+}
+
+select {
+  padding: 5px 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+#topic-dropdown{
+  background-color: #D183C9;
+  font-family: "Outfit", serif;
+  border: 2px solid black;
+
+}
+
+#select-order{
+  background-color: #7dc0ef;
+  font-family: "Outfit", serif;
+  border: 2px solid black;
+} 
+
+#sort-dropdown-navbar{
+  background-color: #FFD670;
+  font-family: "Outfit", serif;
+  border: 2px solid black;
+}
+
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+  width: 100%;              /* Take full width if needed */
+  margin-top: 10px; 
+}
+
+.log-out-btn {
+  display: flex;               /* Enable flexbox for the button */
+  justify-content: center;     /* Center content horizontally */
+  align-items: center;         /* Center content vertically */
+  background-color: #f15152;   /* Button background color */
+  border: none;                /* Remove border */
+  padding: 10px 20px;          /* Button padding */
+  color: #fff;                 /* Text color */
+  border-radius: 5px;          /* Rounded corners */
+  font-size: 1rem;             /* Font size */
+  cursor: pointer;             /* Pointer cursor on hover */
+  text-align: center;          /* Ensure text alignment */
+}
+
+.log-out-btn-text {
+  margin: 0;                   /* Remove any default margins */
+  padding: 0;                  /* Remove any default padding */
+  line-height: 1;              /* Set line-height to avoid spacing issues */
+}
+
+.log-out-btn:hover {
+  background-color: #d14040;
+}
 /* 
 .user-card-read-more-btn{
   width: 120px;
@@ -854,7 +1104,7 @@ color: #fff;
 
 } */
 
-.navbar-container{
+/* .navbar-container{
   display: flex;
   align-items: center; 
   justify-content: flex-start; 
@@ -862,19 +1112,19 @@ color: #fff;
  
   background-color: #3066BE;
   width: 100%;
-}
+} */
 
-.button-container{
+/* .button-container{
   width: 20%;
   margin-left: -90px;
   height: 40px;
-}
+} */
 
 #article-title{
   font-weight: 700;
 }
 
-#topic-dropdown{
+/* #topic-dropdown{
   background-color: #D183C9;
   font-family: "Outfit", serif;
 margin-left: 5px;
@@ -896,13 +1146,13 @@ margin: 0px 10px 10px 10px;
   margin-left: 5px;
   margin: 0px 10px 10px 10px;
   
-}
+} */
 
-.navbar-label{
+/* .navbar-label{
   font-family: "Outfit", serif;
   font-weight: 350;
   color: #fff;
-}
+} */
 
 
 .upvote-downvote-btns{
@@ -910,11 +1160,11 @@ margin: 0px 10px 10px 10px;
   height: 50px;
 }
 
-.log-out-text{
+/* .log-out-text{
   color: #fff;
   font-family: "Outfit", serif;
   font-size: 20px;
-}
+} */
 
 
 

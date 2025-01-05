@@ -58,7 +58,8 @@ function NavBar ({user, setUser}) {
     return(
       <nav>
 <div className="navbar-container">
-  <div>
+  <div className='dropdown-group'>
+    <div>
     <label htmlFor="topic-dropdown" className="navbar-label">Select a topic: </label>
       <select id="topic-dropdown" defaultValue="Select" onChange={(e) => handleFilterChange('topic', e.target.value)}>
         <option></option>
@@ -83,6 +84,7 @@ function NavBar ({user, setUser}) {
         <option>asc</option>
         <option>desc</option>
       </select>
+      </div>
       </div>
   <div className="button-container">
   <Button onClick={logOutAndReset} className="log-out-btn"><span className="log-out-btn-text">Log Out</span></Button>
