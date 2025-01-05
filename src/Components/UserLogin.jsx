@@ -22,7 +22,6 @@ return (
     
     <div className="login-container">
     {error && <p>{error}</p>}
-    {/* <div className="login-body"> */}
 <div className="login">
     <label htmlFor="user-dropdown" className="label">Select your Mr or Little Miss: </label>
     <div className="custom-dropdown">
@@ -37,7 +36,6 @@ return (
       </div>
       {user && <Button onClick={handleLoginClick} className="login-button">Login</Button>}
       </div>
-      {/* </div> */}
       {isLoggedIn && selectedUser && <UserCard selectedUser={selectedUser} />}
     </div>
    

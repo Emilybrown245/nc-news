@@ -17,9 +17,6 @@ function ArticlePage ({user}){
     const [isDownvoteDisabled, setIsDownvoteDisabled] = useState(false);
     const [clickCount, setClickCount] = useState(0);
     const [firstClick, setFirstClick] = useState(null);
-  
-    const btnRef = useRef()
-    const btnRefDownvote = useRef()
 
     useEffect(() => {
         setIsLoading(true)

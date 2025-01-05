@@ -1,12 +1,7 @@
-import {useNavigate} from 'react-router-dom'
 import {Link} from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
+
 function Header({user, selectedUser}) {
 
-  const navigate = useNavigate();
-    const handleAvatarClick = () =>{
-        navigate('/user-card')
-    }
     if (!selectedUser) {
         return <p id="default-login-text">Select a user to read articles!</p>;
       }

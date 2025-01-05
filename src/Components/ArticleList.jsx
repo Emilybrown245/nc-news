@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react'
 import { useLocation } from 'react-router-dom'; 
-import Button from 'react-bootstrap/Button'
 import Collapsible from "./Collapsible"; 
 import ArticleCard from './ArticleCard'
 import { getArticles } from '../api'

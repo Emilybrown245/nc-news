@@ -1,7 +1,6 @@
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 import {Link} from 'react-router-dom'
-import NavBar from './NavBar'
+
 
 function UserCard ({selectedUser}) {
     if (!selectedUser) {

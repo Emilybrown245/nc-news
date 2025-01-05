@@ -3,24 +3,18 @@ import Button from 'react-bootstrap/Button';
 import React from 'react';  
 
 function Collapsible({ children, initialCount = 9 }) {
-  const [isHidden, setIsHidden] = useState(false);
   const [visibleCount, setVisibleCount] = useState(initialCount); 
 
   const childrenArray = React.Children.toArray(children);
 
-  
-  // Handle "Show More" functionality
   function showMoreArticles() {
-    setVisibleCount((prevCount) => prevCount + initialCount); // Increase the visible count by initialCount
+    setVisibleCount((prevCount) => prevCount + initialCount); 
   }
-//   function toggleIsHidden() {
-//     setIsHidden(!isHidden);
-//   }
+
 
   return (
-
         <>
-        {childrenArray.slice(0, visibleCount)} {/* Show only the first `visibleCount` articles */}
+        {childrenArray.slice(0, visibleCount)} 
   
       {visibleCount < childrenArray.length &&
        (

@@ -1,8 +1,7 @@
 import {useNavigate, useLocation} from 'react-router-dom'
-import {Link} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
-function NavBar ({user, setUser}) {
+function NavBar ({setUser}) {
 
   const navigate = useNavigate();
   const location = useLocation();

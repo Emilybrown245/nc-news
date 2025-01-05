@@ -9,7 +9,6 @@ import UserCard from './Components/UserCard';
 import UserLogin from './Components/UserLogin'
 import {getUsers} from './api'
 import Collapsible from './Components/Collapsible';
-import CommentList from './Components/CommentList';
 
 function App() {
   const location = useLocation()
