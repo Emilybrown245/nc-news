@@ -357,6 +357,40 @@ margin-left: 74px;
 }
 
 @media (max-width: 480px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px !important; 
+    padding: 20px;
+    justify-items: center; 
+  }
+
+  .card-body {
+    border-radius: 10px; 
+    text-align: center;
+    margin-top: 50px;
+    width: 350px;
+    height: 300px;
+    background-color: #fff;
+    box-sizing: border-box;
+  }
+
+  .article-card-text-body{
+    background-color: #fff;
+    border-radius: 10px;;
+    width: 350px;
+    height: 200px;
+    margin-top: -30px;
+    z-index: 1;
+    position: absolute;
+    background-color: #fff;
+  }
+
+  .article-image {
+    width: 320px;
+    
+  }
+
   .login {
     width: 100%;
     padding: 10px;
@@ -368,6 +402,7 @@ margin-left: 74px;
 
   .label {
     font-size: 14px;
+
   }
 
   #post-comment {
