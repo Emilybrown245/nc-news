@@ -292,6 +292,44 @@ margin-right: auto;
 }
 
 @media (max-width: 768px) {
+  .grid-container{
+    display: grid !important;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+      gap: 30px; 
+      padding: 20px;
+      justify-items: center; 
+  }
+
+  .card-body {
+    margin-top: 15px;
+    width: 350px !important;
+    height: 500px;
+  
+  }
+
+    .article-card-text-body{
+      width: 350px !important;
+      height: 200px !important;
+    
+    }
+    #article-title{
+      font-size: 16px;
+    }
+  
+    text{
+      font-size: 14px;
+    }
+    
+    #article-author-text{
+      font-family: "Pacifico", serif;
+      font-size: 14px;
+    }
+    .article-image {
+      width: 330px;
+      border-radius: 8px;
+      margin: 9px;
+    }
+
   .label {
     font-size: 0.9rem;
   }
@@ -381,13 +419,46 @@ margin-right: auto;
     align-self: center;
     margin-top: 15px;
   }
+  
 }
 
 @media (max-width: 480px) {
   .grid-container{
-display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
   }
+
+
+  .card-body {
+    margin-top: 15px;
+    width: 380px !important;
+    height: 450px;
+  
+  }
+
+  .article-card-text-body{
+    width: 380px !important;
+    height: 200px !important;
+  
+  }
+  #article-title{
+    font-size: 16px;
+  }
+
+  text{
+    font-size: 14px;
+  }
+  
+  #article-author-text{
+    font-family: "Pacifico", serif;
+    font-size: 14px;
+  }
+  .article-image {
+    width: 360px;
+    border-radius: 8px;
+    margin: 9px;
+  }
+
 
   .user-card-container {
     width: 95%; 
@@ -530,18 +601,18 @@ max-width: 90%;
 
  @media (max-device-width: 320px) { 
   .grid-container{
-    display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    display: grid !important;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
       }
 
       .card-body {
         margin-top: 15px;
-        width: 300px;
+        width: 280px !important;
         height: 400px;
       
       }
       .article-card-text-body{
-        width: 300px !important;
+        width: 280px !important;
         height: 100px !important;
       
       }
@@ -558,7 +629,7 @@ max-width: 90%;
         font-size: 12px;
       }
       .article-image {
-        width: 280px;
+        width: 260px;
         border-radius: 8px;
         margin: 9px;
       }
@@ -794,6 +865,7 @@ select {
   background-color: #fff;
   border-radius: 4px;
   color: #27032b;
+  border: 1px solid black;
   margin: 10px auto;
   font-size: 20px;
   display: flex;
