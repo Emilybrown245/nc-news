@@ -51,10 +51,10 @@ function App() {
     <Route path="/" element={<UserLogin user={user} setUser={setUser} listUsers={listUsers} selectedUser={selectedUser} error={error}/>}></Route>
     <Route path="/articles/:article_id" element={<ArticlePage user={user} />}></Route>
     <Route path="/user-card" element={selectedUser ? (
-                <UserCard selectedUser={selectedUser} />
-            ) : (
-                <p>Select a user to view details.</p>
-            )}></Route>
+      <UserCard selectedUser={selectedUser} />
+    ) : (
+      <p>Select a user to view details.</p>
+    )}></Route>
     <Route path="/articles" element={<Collapsible><ArticleList /></Collapsible>}></Route>
   </Routes>
   </>

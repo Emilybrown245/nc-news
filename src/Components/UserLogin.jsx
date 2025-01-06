@@ -1,11 +1,18 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import UserCard from './UserCard';
 import Button from 'react-bootstrap/Button'
 import { useNavigate } from 'react-router-dom'; 
 
 function UserLogin ({user, setUser, listUsers, selectedUser, error}) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoading, setIsLoading] = useState(true)
     const navigate = useNavigate();
+
+    useEffect(() => {
+      if (listUsers.length > 0) {
+        setIsLoading(false); 
+      }
+    }, [listUsers]);
 
     const handleChange = (e) => {
         setUser(e.target.value);
@@ -27,7 +34,7 @@ return (
     <div className="custom-dropdown">
       <select id="user-dropdown" value={user || ''} onChange={handleChange} >
         <option>Select user</option>
-        {listUsers.map((userObj) => (
+        {!isLoading && listUsers.map((userObj) => (
             <option key={userObj.username} value={userObj.username}>
               {userObj.username}
               </option>
@@ -37,6 +44,7 @@ return (
       {user && <Button onClick={handleLoginClick} className="login-button">Login</Button>}
       </div>
       {isLoggedIn && selectedUser && <UserCard selectedUser={selectedUser} />}
+      {isLoading && <p className='loading-msg'>Loading, please wait...</p>}
     </div>
    
         )
