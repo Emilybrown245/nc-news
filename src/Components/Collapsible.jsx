@@ -15,7 +15,6 @@ function Collapsible({ children, initialCount = 9 }) {
   return (
     <>
         {childrenArray.slice(0, visibleCount)} 
-  
       {visibleCount < childrenArray.length &&
        (
         <Button onClick={showMoreArticles} className='home-page-btn' >
