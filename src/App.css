@@ -96,7 +96,14 @@
 a {
   color: #FFF;
 }
-
+.home-page-container {
+  display: flex; /* Enables flexbox */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  flex-direction: column; /* Keeps elements stacked */
+  height: 100vh; /* Full viewport height for vertical centering */
+  text-align: center; /* Centers text inside the container */
+}
 
 .home-page-text{
   font-family: "Outfit", serif;
@@ -115,8 +122,18 @@ a {
 }
 
 #link-to-home-page{
-  margin: 20px;
-  display: block;
+  display: block; 
+  margin: 20px; 
+  text-align: center; 
+  padding: 10px 15px; 
+  background-color: #F15152; 
+  color: #fff;
+  border-radius: 5px; 
+  text-decoration: none; 
+  font-size: 1rem; 
+  font-family: "Outfit", serif;
+  width: fit-content; 
+  cursor: pointer;
 }
 
 #show-more-articles-btn{
@@ -210,7 +227,9 @@ margin-right: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 10px auto;
+ margin: 5px auto;
+ margin-bottom: 25px;
+ 
 }
 
 #post-comment{

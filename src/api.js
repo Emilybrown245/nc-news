@@ -24,3 +24,27 @@ export const getUsers = async () => {
     console.log(data)
     return data.users;
 }
+
+export const updateArticleVotes = async (article_id, increment) => {
+    const { data } = await axios.patch(`${BASEURL}/articles/${article_id}`, {
+      inc_votes: increment,
+    });
+    return data.article;
+  };
+
+  export const fetchCommentsByArticleId = async (article_id) => {
+    const { data } = await axios.get(`${BASEURL}/articles/${article_id}/comments`);
+    return data.comments;
+  };
+  
+//   export const postComment = async (article_id, username, body) => {
+//     const { data } = await axios.post(`${BASEURL}/articles/${article_id}/comments`, {
+//       username,
+//       body,
+//     });
+//     return data.comment;
+//   };
+  
+//   export const deleteComment = async (comment_id) => {
+//     await axios.delete(`${BASEURL}/comments/${comment_id}`);
+//   };

@@ -13,7 +13,7 @@ function Collapsible({ children, initialCount = 9 }) {
 
 
   return (
-        <>
+    <>
         {childrenArray.slice(0, visibleCount)} 
   
       {visibleCount < childrenArray.length &&
@@ -23,7 +23,7 @@ function Collapsible({ children, initialCount = 9 }) {
         </Button>
       )}
  </>
-  );
+  )
 }
 
 export default Collapsible;

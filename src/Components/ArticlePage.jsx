@@ -5,6 +5,7 @@ import {useEffect, useState, useRef} from 'react'
 import axios from 'axios'
 import CommentList from './CommentList';
 import dayjs from 'dayjs';
+import { updateArticleVotes } from '../api'
 
 function ArticlePage ({user}){
     const {article_id} = useParams();
@@ -32,6 +33,19 @@ function ArticlePage ({user}){
     }, [article_id])
 
     const patchVotes = async (increment) => {
+      const previousVotes = votes;
+      try {
+        await updateArticleVotes(article_id, increment);
+        setVotes((votes) => votes + increment);
+      } catch (error) {
+        setVotes(previousVotes);
+        setError('Failed to vote. Try again later.');
+      }finally {
+        setIsLoading(false)
+      }
+    };
+
+    /*const patchVotes = async (increment) => {
         const previousVotes = votes;
         try{
             await axios.patch(`https://nc-news-lo7q.onrender.com/api/articles/${article_id}`, {
@@ -44,7 +58,7 @@ function ArticlePage ({user}){
         } finally{
             setIsLoading(false)
         }
-       }
+       }*/
 
        const handleUpvoteClick = async () => {
         if (!firstClick) {
