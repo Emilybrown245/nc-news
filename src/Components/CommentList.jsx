@@ -77,7 +77,9 @@ function CommentList ({article_id, updateArticleCommentCount, user}) {
         <Button className="post-comment-btn" type="submit" disabled={isLoading}><span className="post-btn-text">{isLoading ? "Posting..." : "Post"}</span></Button>
         </form>
      </div>
-     {deletedComment && <p>{deletedComment}</p>}
+     
+     {deletedComment && ( <div className="deleted-comment-message"><p>{deletedComment}</p>    </div>)}
+  
      <Collapsible initialCount={10} >
     {comments.map((comment) => {
         return <li key={comment.comment_id}>
